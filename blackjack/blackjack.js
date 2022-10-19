@@ -1,10 +1,13 @@
 import { Deck } from '../cards/deck';
+import { Player } from './player';
 
 const deck = new Deck(1);
-const playerCards = deck.getCards(2);
-let value = 0;
-for (const card of playerCards) {
+const player = new Player();
+
+player.getCards(deck, 2);
+
+for (const card of player.cards) {
   card.print();
-  value += card.getValue();
 }
-console.log(`Value: ${value}`);
+
+player.printHandValue();
