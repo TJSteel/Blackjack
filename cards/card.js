@@ -21,6 +21,15 @@ export class Card {
         return '' + this.value;
     }
   }
+  getValue() {
+    if (this.value === 1) {
+      return 11;
+    } else if (this.value > 10) {
+      return 10;
+    } else {
+      return this.value;
+    }
+  }
   print() {
     console.log(`${this.getValueName()} of ${this.suit}`);
   }
