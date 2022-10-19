@@ -1,0 +1,33 @@
+{
+  "name": "blackjack",
+  "version": "1.0.0",
+  "description": "Simple blackjack game",
+  "main": "blackjack\\blackjack.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "lint-staged": "lint-staged",
+    "prepare": "husky install",
+    "prettier": "./node_modules/.bin/prettier --write **/*.{js,json,yaml,yml}",
+    "spell-check": "./node_modules/.bin/cspell --cache --no-progress --no-must-find-files --color **/*.{js,json,yaml,yml}"
+  },
+  "author": {
+    "name": "Jay Steel",
+    "email": "jaysteel78@msn.com",
+    "url": "https://github.com/TJSteel/"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/TJSteel/OnlineRacingManager"
+  },
+  "license": "UNLICENSED",
+  "lint-staged": {
+    "**/*.{js,json,yaml,yml}": ".\\node_modules\\.bin\\prettier --write"
+  },
+  "devDependencies": {
+    "cspell": "^6.12.0",
+    "husky": "^8.0.1",
+    "lint-staged": "^13.0.3",
+    "pre-commit": "^1.2.2",
+    "prettier": "^2.7.1"
+  }
+}
