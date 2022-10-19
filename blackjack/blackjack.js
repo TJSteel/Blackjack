@@ -26,17 +26,23 @@ class Card {
 }
 
 class Deck {
+  deckCount;
   cards = [];
-  constructor() {
+  constructor(deckCount) {
+    this.deckCount = deckCount;
     this.createDeck();
   }
   createDeck() {
+    let deckCount = this.deckCount;
     this.cards = [];
-    for (let value = 1; value < 14; value++) {
-      for (const suit of suits) {
-        const card = new Card(value, suit);
-        this.cards.push(card);
+    while (deckCount > 0) {
+      for (let value = 1; value < 14; value++) {
+        for (const suit of suits) {
+          const card = new Card(value, suit);
+          this.cards.push(card);
+        }
       }
+      deckCount--;
     }
   }
   getCard() {
@@ -56,7 +62,7 @@ class Deck {
   }
 }
 
-const deck = new Deck();
+const deck = new Deck(1);
 const playerCards = deck.getCards(2);
 for (const card of playerCards) {
   card.print();
