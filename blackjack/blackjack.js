@@ -1,13 +1,19 @@
-import { Deck } from '../cards/deck';
-import { Player } from './player';
+import { Table } from './table';
 
-const deck = new Deck(1);
-const player = new Player();
+const table = new Table();
 
-player.getCards(deck, 2);
+table.dealHand();
 
-for (const card of player.cards) {
-  card.print();
+let playerValue = table.player.getHandValue();
+while (playerValue > 0 && playerValue < 17) {
+  table.player.getCard(table.deck);
+  playerValue = table.player.getHandValue();
 }
 
-player.printHandValue();
+let dealerValue = table.dealer.getHandValue();
+while (dealerValue > 0 && dealerValue < 17) {
+  table.dealer.getCard(table.deck);
+  dealerValue = table.dealer.getHandValue();
+}
+
+table.printResult();

@@ -1,6 +1,9 @@
 export class Player {
   cards = [];
-  constructor() {}
+  name;
+  constructor(name) {
+    this.name = name;
+  }
 
   getCard(deck) {
     this.cards.push(deck.getCard());
@@ -40,5 +43,13 @@ export class Player {
     } else {
       console.log(value);
     }
+  }
+  printHand() {
+    console.log(`Hand for ${this.name}`);
+    for (const card of this.cards) {
+      card.print();
+    }
+    this.printHandValue();
+    console.log(''); // to add spacing between players
   }
 }
